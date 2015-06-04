@@ -8,40 +8,51 @@
 
 #import "FriendsTableViewController.h"
 #import "PeopleTableViewController.h"
+#import "AppDelegate.h"
 
 @interface FriendsTableViewController ()
-
+@property NSManagedObjectContext *moc;
+@property (nonatomic)NSArray *friends;
 @end
 
 @implementation FriendsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    self.moc = appDelegate.managedObjectContext;
+
+    [self load];
+    [self.tableView reloadData];
     }
 
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 0;
 }
 
+-(void)load{
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Friend"];
+    NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    request.sortDescriptors = @[sortDescriptor1];
+    self.friends = [self.moc executeFetchRequest:request error:nil];
+    [self.tableView reloadData];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID" forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    cell.textLabel.text = self.friends[indexPath.row];
     return cell;
 }
 
 -(IBAction)unwindTo:(UIStoryboardSegue *)segue{
 
     PeopleTableViewController *dVC = segue.sourceViewController;
-
+    [self load];
 }
 
 
