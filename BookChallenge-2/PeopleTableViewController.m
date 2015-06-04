@@ -12,7 +12,9 @@
 
 @interface PeopleTableViewController ()
 @property (nonatomic) NSArray *peoples;
-@property NSMutableArray *names;
+@property (nonatomic) NSMutableArray *peoples2;
+
+@property NSArray *names;
 @property NSManagedObjectContext *moc;
 
 @end
@@ -27,7 +29,7 @@
 
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://s3.amazonaws.com/mobile-makers-assets/app/public/ckeditor_assets/attachments/18/friends.json"]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        self.peoples = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        self.names = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         
         [self.tableView reloadData];
     }];
@@ -35,11 +37,6 @@
 
 #pragma mark - Table view data source
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return self.peoples.count;
-}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -57,7 +54,8 @@
 
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
 
-        NSString *friendString = self.peoples[indexPath.row];
+        NSString *friendString = self.names[indexPath.row];
+        
          NSManagedObject *friend = [NSEntityDescription insertNewObjectForEntityForName:@"Friend" inManagedObjectContext:self.moc];
         [friend setValue:friendString forKey:@"name"];
         NSLog(@"%@----------============--------======",friendString);
@@ -74,17 +72,23 @@
     NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Friend"];
     NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     request.sortDescriptors = @[sortDescriptor1];
-//    self.peoples =self.names;
 
     self.peoples = [self.moc executeFetchRequest:request error:nil];
     [self.tableView reloadData];
 }
 
 
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.names.count;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID2" forIndexPath:indexPath];
 //    Friend *friend = [self.peoples objectAtIndex:indexPath.row];
-    cell.textLabel.text = [self.peoples objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.names objectAtIndex:indexPath.row];
 ;
     return cell;
 }
