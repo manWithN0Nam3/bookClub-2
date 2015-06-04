@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AddBookViewController.h
 //  BookChallenge-2
 //
 //  Created by Alex Santorineos on 6/4/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface AddBookViewController : UIViewController
 
 @end
-

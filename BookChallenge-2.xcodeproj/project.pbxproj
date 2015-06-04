@@ -10,11 +10,15 @@
 		977EF3111B20D6B7003B606D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3101B20D6B7003B606D /* main.m */; };
 		977EF3141B20D6B7003B606D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3131B20D6B7003B606D /* AppDelegate.m */; };
 		977EF3171B20D6B7003B606D /* BookChallenge_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3151B20D6B7003B606D /* BookChallenge_2.xcdatamodeld */; };
-		977EF31A1B20D6B7003B606D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3191B20D6B7003B606D /* ViewController.m */; };
 		977EF31D1B20D6B7003B606D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 977EF31B1B20D6B7003B606D /* Main.storyboard */; };
 		977EF31F1B20D6B7003B606D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 977EF31E1B20D6B7003B606D /* Images.xcassets */; };
 		977EF3221B20D6B7003B606D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 977EF3201B20D6B7003B606D /* LaunchScreen.xib */; };
 		977EF32E1B20D6B7003B606D /* BookChallenge_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF32D1B20D6B7003B606D /* BookChallenge_2Tests.m */; };
+		977EF3391B20DAD1003B606D /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3381B20DAD1003B606D /* FriendsTableViewController.m */; };
+		977EF33C1B20DAE5003B606D /* PeopleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF33B1B20DAE5003B606D /* PeopleTableViewController.m */; };
+		977EF33F1B20DB09003B606D /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF33E1B20DB09003B606D /* FriendViewController.m */; };
+		977EF3421B20DB13003B606D /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3411B20DB13003B606D /* BookViewController.m */; };
+		977EF3451B20DB41003B606D /* AddBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3441B20DB41003B606D /* AddBookViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +38,22 @@
 		977EF3121B20D6B7003B606D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		977EF3131B20D6B7003B606D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		977EF3161B20D6B7003B606D /* BookChallenge_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookChallenge_2.xcdatamodel; sourceTree = "<group>"; };
-		977EF3181B20D6B7003B606D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		977EF3191B20D6B7003B606D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		977EF31C1B20D6B7003B606D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		977EF31E1B20D6B7003B606D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		977EF3211B20D6B7003B606D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		977EF3271B20D6B7003B606D /* BookChallenge-2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BookChallenge-2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		977EF32C1B20D6B7003B606D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		977EF32D1B20D6B7003B606D /* BookChallenge_2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookChallenge_2Tests.m; sourceTree = "<group>"; };
+		977EF3371B20DAD1003B606D /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
+		977EF3381B20DAD1003B606D /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
+		977EF33A1B20DAE5003B606D /* PeopleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTableViewController.h; sourceTree = "<group>"; };
+		977EF33B1B20DAE5003B606D /* PeopleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleTableViewController.m; sourceTree = "<group>"; };
+		977EF33D1B20DB09003B606D /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendViewController.h; sourceTree = "<group>"; };
+		977EF33E1B20DB09003B606D /* FriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendViewController.m; sourceTree = "<group>"; };
+		977EF3401B20DB13003B606D /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookViewController.h; sourceTree = "<group>"; };
+		977EF3411B20DB13003B606D /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookViewController.m; sourceTree = "<group>"; };
+		977EF3431B20DB41003B606D /* AddBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBookViewController.h; sourceTree = "<group>"; };
+		977EF3441B20DB41003B606D /* AddBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBookViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +95,18 @@
 		977EF30D1B20D6B7003B606D /* BookChallenge-2 */ = {
 			isa = PBXGroup;
 			children = (
+				977EF3371B20DAD1003B606D /* FriendsTableViewController.h */,
+				977EF3381B20DAD1003B606D /* FriendsTableViewController.m */,
+				977EF33A1B20DAE5003B606D /* PeopleTableViewController.h */,
+				977EF33B1B20DAE5003B606D /* PeopleTableViewController.m */,
+				977EF33D1B20DB09003B606D /* FriendViewController.h */,
+				977EF33E1B20DB09003B606D /* FriendViewController.m */,
+				977EF3431B20DB41003B606D /* AddBookViewController.h */,
+				977EF3441B20DB41003B606D /* AddBookViewController.m */,
+				977EF3401B20DB13003B606D /* BookViewController.h */,
+				977EF3411B20DB13003B606D /* BookViewController.m */,
 				977EF3121B20D6B7003B606D /* AppDelegate.h */,
 				977EF3131B20D6B7003B606D /* AppDelegate.m */,
-				977EF3181B20D6B7003B606D /* ViewController.h */,
-				977EF3191B20D6B7003B606D /* ViewController.m */,
 				977EF31B1B20D6B7003B606D /* Main.storyboard */,
 				977EF31E1B20D6B7003B606D /* Images.xcassets */,
 				977EF3201B20D6B7003B606D /* LaunchScreen.xib */,
@@ -222,9 +242,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977EF33C1B20DAE5003B606D /* PeopleTableViewController.m in Sources */,
 				977EF3141B20D6B7003B606D /* AppDelegate.m in Sources */,
+				977EF3421B20DB13003B606D /* BookViewController.m in Sources */,
+				977EF3391B20DAD1003B606D /* FriendsTableViewController.m in Sources */,
 				977EF3111B20D6B7003B606D /* main.m in Sources */,
-				977EF31A1B20D6B7003B606D /* ViewController.m in Sources */,
+				977EF3451B20DB41003B606D /* AddBookViewController.m in Sources */,
+				977EF33F1B20DB09003B606D /* FriendViewController.m in Sources */,
 				977EF3171B20D6B7003B606D /* BookChallenge_2.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
