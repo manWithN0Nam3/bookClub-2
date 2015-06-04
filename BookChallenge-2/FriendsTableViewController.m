@@ -10,6 +10,7 @@
 #import "PeopleTableViewController.h"
 #import "AppDelegate.h"
 #import "Friend.h"
+#import "FriendViewController.h"
 
 @interface FriendsTableViewController ()
 @property NSManagedObjectContext *moc;
@@ -27,13 +28,6 @@
     [self.tableView reloadData];
     }
 
-
-#pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.friends.count;
-}
-
 -(void)load{
     NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Friend"];
     NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
@@ -41,6 +35,13 @@
     self.friends = [self.moc executeFetchRequest:request error:nil];
     [self.tableView reloadData];
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.friends.count;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID" forIndexPath:indexPath];
@@ -57,6 +58,20 @@
 
     [self load];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    if ([segue.identifier  isEqual: @"friend"]) {
+        FriendViewController *dvc = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Friend *friend =self.friends[indexPath.row];
+
+        //    cell.textLabel.text =friend.name;
+        dvc.frienddd = friend;
+    }
+
+}
+
 
 
 @end

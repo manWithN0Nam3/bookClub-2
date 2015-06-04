@@ -7,10 +7,12 @@
 //
 
 #import "Friend.h"
+#import "Book.h"
 
 
 @implementation Friend
 
 @dynamic name;
+@dynamic book;
 
 @end

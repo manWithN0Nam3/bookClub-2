@@ -1,14 +1,19 @@
 //
-//  FriendViewController.h
+//  Book.m
 //  BookChallenge-2
 //
 //  Created by Alex Santorineos on 6/4/15.
 //  Copyright (c) 2015 madApperz. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Book.h"
 #import "Friend.h"
 
-@interface FriendViewController : UIViewController
-@property Friend *frienddd;
+
+@implementation Book
+
+@dynamic title;
+@dynamic author;
+@dynamic friend;
+
 @end

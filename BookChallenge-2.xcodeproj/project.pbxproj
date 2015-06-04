@@ -19,7 +19,8 @@
 		977EF33F1B20DB09003B606D /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF33E1B20DB09003B606D /* FriendViewController.m */; };
 		977EF3421B20DB13003B606D /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3411B20DB13003B606D /* BookViewController.m */; };
 		977EF3451B20DB41003B606D /* AddBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3441B20DB41003B606D /* AddBookViewController.m */; };
-		977EF3481B20E158003B606D /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3471B20E158003B606D /* Friend.m */; };
+		977EF34C1B20FAD5003B606D /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF34B1B20FAD5003B606D /* Book.m */; };
+		977EF34F1B20FAD5003B606D /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF34E1B20FAD5003B606D /* Friend.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +56,10 @@
 		977EF3411B20DB13003B606D /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookViewController.m; sourceTree = "<group>"; };
 		977EF3431B20DB41003B606D /* AddBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBookViewController.h; sourceTree = "<group>"; };
 		977EF3441B20DB41003B606D /* AddBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBookViewController.m; sourceTree = "<group>"; };
-		977EF3461B20E158003B606D /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
-		977EF3471B20E158003B606D /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
+		977EF34A1B20FAD5003B606D /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		977EF34B1B20FAD5003B606D /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		977EF34D1B20FAD5003B606D /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
+		977EF34E1B20FAD5003B606D /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +152,10 @@
 		977EF3491B20E15E003B606D /* model */ = {
 			isa = PBXGroup;
 			children = (
-				977EF3461B20E158003B606D /* Friend.h */,
-				977EF3471B20E158003B606D /* Friend.m */,
+				977EF34D1B20FAD5003B606D /* Friend.h */,
+				977EF34E1B20FAD5003B606D /* Friend.m */,
+				977EF34A1B20FAD5003B606D /* Book.h */,
+				977EF34B1B20FAD5003B606D /* Book.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -255,10 +260,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977EF34C1B20FAD5003B606D /* Book.m in Sources */,
+				977EF34F1B20FAD5003B606D /* Friend.m in Sources */,
 				977EF33C1B20DAE5003B606D /* PeopleTableViewController.m in Sources */,
 				977EF3141B20D6B7003B606D /* AppDelegate.m in Sources */,
 				977EF3421B20DB13003B606D /* BookViewController.m in Sources */,
-				977EF3481B20E158003B606D /* Friend.m in Sources */,
 				977EF3391B20DAD1003B606D /* FriendsTableViewController.m in Sources */,
 				977EF3111B20D6B7003B606D /* main.m in Sources */,
 				977EF3451B20DB41003B606D /* AddBookViewController.m in Sources */,
