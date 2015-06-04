@@ -29,7 +29,7 @@
 
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://s3.amazonaws.com/mobile-makers-assets/app/public/ckeditor_assets/attachments/18/friends.json"]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        self.names = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        self.peoples = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         
         [self.tableView reloadData];
     }];
@@ -54,17 +54,16 @@
 
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
 
-        NSString *friendString = self.names[indexPath.row];
-        
+//
          NSManagedObject *friend = [NSEntityDescription insertNewObjectForEntityForName:@"Friend" inManagedObjectContext:self.moc];
-        [friend setValue:friendString forKey:@"name"];
-        NSLog(@"%@----------============--------======",friendString);
-
-        [self.moc save:nil];
-        [self load];
+        [friend setValue:[self.peoples objectAtIndex:indexPath.row] forKey:@"name"];
+////        NSLog(@"%@----------============--------======",friendString);
+//
+//        [self load];
     }
 
 
+    [self.moc save:nil];
 
 }
 
@@ -81,14 +80,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.names.count;
+    return self.peoples.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID2" forIndexPath:indexPath];
 //    Friend *friend = [self.peoples objectAtIndex:indexPath.row];
-    cell.textLabel.text = [self.names objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.peoples objectAtIndex:indexPath.row];
 ;
     return cell;
 }

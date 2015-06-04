@@ -9,6 +9,7 @@
 #import "FriendsTableViewController.h"
 #import "PeopleTableViewController.h"
 #import "AppDelegate.h"
+#import "Friend.h"
 
 @interface FriendsTableViewController ()
 @property NSManagedObjectContext *moc;
@@ -31,7 +32,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    return self.friends.count;
 }
 
 -(void)load{
@@ -44,14 +45,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID" forIndexPath:indexPath];
-    
-    cell.textLabel.text = self.friends[indexPath.row];
+    Friend *friend =self.friends[indexPath.row];
+
+    cell.textLabel.text =friend.name;
     return cell;
 }
 
 -(IBAction)unwindTo:(UIStoryboardSegue *)segue{
 
     PeopleTableViewController *dVC = segue.sourceViewController;
+
+
     [self load];
 }
 
