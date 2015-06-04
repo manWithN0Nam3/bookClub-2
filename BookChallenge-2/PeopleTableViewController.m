@@ -12,7 +12,7 @@
 
 @interface PeopleTableViewController ()
 @property (nonatomic) NSArray *peoples;
-@property (nonatomic) NSMutableArray *peoples2;
+//@property (nonatomic) NSMutableArray *peoples2;
 
 @property NSArray *names;
 @property NSManagedObjectContext *moc;
