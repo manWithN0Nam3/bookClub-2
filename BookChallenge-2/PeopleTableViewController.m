@@ -14,8 +14,10 @@
 @property (nonatomic) NSArray *peoples;
 //@property (nonatomic) NSMutableArray *peoples2;
 
-@property NSArray *names;
+@property NSArray *friends;
 @property NSManagedObjectContext *moc;
+
+
 
 @end
 
@@ -26,13 +28,32 @@
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     self.moc = appDelegate.managedObjectContext;
+    [self load];
+    if (self.friends.count == 0) {
+        [self loadJSONdata];
+    }
 
+}
+
+-(void)loadJSONdata {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://s3.amazonaws.com/mobile-makers-assets/app/public/ckeditor_assets/attachments/18/friends.json"]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         self.peoples = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        
-        [self.tableView reloadData];
+
+        for (NSString *string in self.peoples) {
+            Friend *friend = [NSEntityDescription insertNewObjectForEntityForName:@"Friend" inManagedObjectContext:self.moc];
+            [friend setValue:string forKey:@"name"];
+            [friend setValue:@0 forKey:@"isFriend"];
+            [self.moc save:nil];
+        }
+        [self load];
     }];
+}
+
+-(void)load{
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Friend"];
+    self.friends = [self.moc executeFetchRequest:request error:nil];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -43,52 +64,46 @@
     if ([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark) {
         //unselect
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
-        //
-//        NSString *friendString = self.peoples[indexPath.row];
-//        NSManagedObject *friend = [NSEntityDescription insertNewObjectForEntityForName:@"Friend" inManagedObjectContext:self.moc];
-//
-// [self.moc deleteObject:[self.ultimateCharacters objectAtIndex:self.cellToDelete]];
+
+        Friend *friend =[self.friends objectAtIndex:indexPath.row];
+        friend.isFriend = @0;
+
+        [self.moc save:nil];
 
     }else{
         //select
 
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+        //
+        Friend *friend =[self.friends objectAtIndex:indexPath.row];
+        friend.isFriend = @1;
 
-//
-         NSManagedObject *friend = [NSEntityDescription insertNewObjectForEntityForName:@"Friend" inManagedObjectContext:self.moc];
-        [friend setValue:[self.peoples objectAtIndex:indexPath.row] forKey:@"name"];
-////        NSLog(@"%@----------============--------======",friendString);
-//
-//        [self load];
+        [self.moc save:nil];
+
     }
 
 
-    [self.moc save:nil];
 
 }
-
--(void)load{
-    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Friend"];
-    NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    request.sortDescriptors = @[sortDescriptor1];
-
-    self.peoples = [self.moc executeFetchRequest:request error:nil];
-    [self.tableView reloadData];
-}
-
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.peoples.count;
+    return self.friends.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID2" forIndexPath:indexPath];
-//    Friend *friend = [self.peoples objectAtIndex:indexPath.row];
-    cell.textLabel.text = [self.peoples objectAtIndex:indexPath.row];
-;
+    Friend *friend = [self.friends objectAtIndex:indexPath.row];
+    cell.textLabel.text = friend.name;
+    if ([friend.isFriend isEqual:@1]) {
+
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+
     return cell;
 }
 

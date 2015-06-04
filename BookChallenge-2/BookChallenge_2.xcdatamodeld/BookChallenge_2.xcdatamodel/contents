@@ -6,11 +6,12 @@
         <relationship name="friend" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="book" inverseEntity="Friend" syncable="YES"/>
     </entity>
     <entity name="Friend" representedClassName="Friend" syncable="YES">
+        <attribute name="isFriend" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="book" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="friend" inverseEntity="Book" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Friend" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Friend" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="Book" positionX="-54" positionY="0" width="128" height="90"/>
     </elements>
 </model>

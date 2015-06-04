@@ -13,6 +13,7 @@
 @implementation Friend
 
 @dynamic name;
+@dynamic isFriend;
 @dynamic book;
 
 @end

@@ -14,7 +14,8 @@
 
 @interface FriendsTableViewController ()
 @property NSManagedObjectContext *moc;
-@property (nonatomic)NSArray *friends;
+@property (nonatomic)NSArray *allPeoples;
+@property NSMutableArray *friends;
 @end
 
 @implementation FriendsTableViewController
@@ -25,14 +26,19 @@
     self.moc = appDelegate.managedObjectContext;
 
     [self load];
-    [self.tableView reloadData];
-    }
+}
 
 -(void)load{
     NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Friend"];
     NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     request.sortDescriptors = @[sortDescriptor1];
-    self.friends = [self.moc executeFetchRequest:request error:nil];
+    self.allPeoples = [self.moc executeFetchRequest:request error:nil];
+    self.friends = [NSMutableArray new];
+    for (Friend *friend in self.allPeoples) {
+        if ([friend.isFriend isEqual:@1]) {
+            [self.friends addObject:friend];
+        }
+    }
     [self.tableView reloadData];
 }
 
@@ -52,10 +58,6 @@
 }
 
 -(IBAction)unwindTo:(UIStoryboardSegue *)segue{
-
-    PeopleTableViewController *dVC = segue.sourceViewController;
-
-
     [self load];
 }
 

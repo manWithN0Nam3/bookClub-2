@@ -14,6 +14,7 @@
 @interface Friend : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * isFriend;
 @property (nonatomic, retain) NSSet *book;
 @end
 

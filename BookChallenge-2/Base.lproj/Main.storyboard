@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="171" y="386"/>
         </scene>
-        <!--Friend View Controller-->
+        <!--Title-->
         <scene sceneID="Ibp-FI-qXC">
             <objects>
                 <viewController id="Pmg-6M-7LQ" customClass="FriendViewController" sceneMemberID="viewController">
@@ -93,6 +93,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Hwj-B3-7cM">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="cza-jn-oy7">
+                            <connections>
+                                <segue destination="wqw-Hh-dsp" kind="modal" id="bgl-iX-56E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameTextLabel" destination="LSd-4F-vf6" id="My9-cy-dAl"/>
                         <outlet property="tableView" destination="NCE-XR-B9A" id="ecO-6n-RlW"/>
@@ -131,10 +138,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="lvb-zh-6AW">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="mww-Jh-fPU"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hb0-f1-LQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1003.5" y="1186"/>
+            <point key="canvasLocation" x="1006.5" y="1991"/>
         </scene>
         <!--Title-->
         <scene sceneID="6vM-m1-Bue">
@@ -204,6 +214,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdJ-fv-A61" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="171" y="1080"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XwC-sy-av9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wqw-Hh-dsp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vfa-a7-JyT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MAI-xH-gCV" kind="relationship" relationship="rootViewController" id="wfS-gG-0xx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QcY-eW-ebp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="991.5" y="1279"/>
         </scene>
     </scenes>
 </document>
