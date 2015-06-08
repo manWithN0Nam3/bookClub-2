@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Friend.h"
 
-@interface FriendViewController : UIViewController
+@interface ProfileViewController : UIViewController
 @property Friend *frienddd;
 @end

@@ -10,7 +10,7 @@
 #import "PeopleTableViewController.h"
 #import "AppDelegate.h"
 #import "Friend.h"
-#import "FriendViewController.h"
+#import "ProfileViewController.h"
 
 @interface FriendsTableViewController ()
 @property NSManagedObjectContext *moc;
@@ -64,7 +64,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
     if ([segue.identifier  isEqual: @"friend"]) {
-        FriendViewController *dvc = segue.destinationViewController;
+        ProfileViewController *dvc = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Friend *friend =self.friends[indexPath.row];
 

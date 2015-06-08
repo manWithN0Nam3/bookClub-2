@@ -16,7 +16,7 @@
 		977EF32E1B20D6B7003B606D /* BookChallenge_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF32D1B20D6B7003B606D /* BookChallenge_2Tests.m */; };
 		977EF3391B20DAD1003B606D /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3381B20DAD1003B606D /* FriendsTableViewController.m */; };
 		977EF33C1B20DAE5003B606D /* PeopleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF33B1B20DAE5003B606D /* PeopleTableViewController.m */; };
-		977EF33F1B20DB09003B606D /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF33E1B20DB09003B606D /* FriendViewController.m */; };
+		977EF33F1B20DB09003B606D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF33E1B20DB09003B606D /* ProfileViewController.m */; };
 		977EF3421B20DB13003B606D /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3411B20DB13003B606D /* BookViewController.m */; };
 		977EF3451B20DB41003B606D /* AddBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF3441B20DB41003B606D /* AddBookViewController.m */; };
 		977EF34C1B20FAD5003B606D /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 977EF34B1B20FAD5003B606D /* Book.m */; };
@@ -50,8 +50,8 @@
 		977EF3381B20DAD1003B606D /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
 		977EF33A1B20DAE5003B606D /* PeopleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTableViewController.h; sourceTree = "<group>"; };
 		977EF33B1B20DAE5003B606D /* PeopleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleTableViewController.m; sourceTree = "<group>"; };
-		977EF33D1B20DB09003B606D /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendViewController.h; sourceTree = "<group>"; };
-		977EF33E1B20DB09003B606D /* FriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendViewController.m; sourceTree = "<group>"; };
+		977EF33D1B20DB09003B606D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		977EF33E1B20DB09003B606D /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		977EF3401B20DB13003B606D /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookViewController.h; sourceTree = "<group>"; };
 		977EF3411B20DB13003B606D /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookViewController.m; sourceTree = "<group>"; };
 		977EF3431B20DB41003B606D /* AddBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBookViewController.h; sourceTree = "<group>"; };
@@ -107,8 +107,8 @@
 				977EF3381B20DAD1003B606D /* FriendsTableViewController.m */,
 				977EF33A1B20DAE5003B606D /* PeopleTableViewController.h */,
 				977EF33B1B20DAE5003B606D /* PeopleTableViewController.m */,
-				977EF33D1B20DB09003B606D /* FriendViewController.h */,
-				977EF33E1B20DB09003B606D /* FriendViewController.m */,
+				977EF33D1B20DB09003B606D /* ProfileViewController.h */,
+				977EF33E1B20DB09003B606D /* ProfileViewController.m */,
 				977EF3431B20DB41003B606D /* AddBookViewController.h */,
 				977EF3441B20DB41003B606D /* AddBookViewController.m */,
 				977EF3401B20DB13003B606D /* BookViewController.h */,
@@ -268,7 +268,7 @@
 				977EF3391B20DAD1003B606D /* FriendsTableViewController.m in Sources */,
 				977EF3111B20D6B7003B606D /* main.m in Sources */,
 				977EF3451B20DB41003B606D /* AddBookViewController.m in Sources */,
-				977EF33F1B20DB09003B606D /* FriendViewController.m in Sources */,
+				977EF33F1B20DB09003B606D /* ProfileViewController.m in Sources */,
 				977EF3171B20D6B7003B606D /* BookChallenge_2.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +464,7 @@
 				977EF3331B20D6B7003B606D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		977EF3341B20D6B7003B606D /* Build configuration list for PBXNativeTarget "BookChallenge-2Tests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +473,7 @@
 				977EF3361B20D6B7003B606D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

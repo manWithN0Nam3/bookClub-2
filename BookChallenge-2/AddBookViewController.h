@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Friend.h"
 @interface AddBookViewController : UIViewController
-
+@property Friend *frienddd;
 @end

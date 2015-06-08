@@ -7,8 +7,14 @@
 //
 
 #import "AddBookViewController.h"
+#import "AppDelegate.h"
+#import "Book.h"
 
 @interface AddBookViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *authorTextField;
+@property NSManagedObjectContext *moc;
+
 
 @end
 
@@ -16,22 +22,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    AppDelegate *delegate = [[UIApplication sharedApplication]delegate];
+    self.moc = delegate.managedObjectContext;
+//
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)onButtonTapped:(UIButton *)sender {
+
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    Book *book = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Book class]) inManagedObjectContext:self.moc];
+
+    [book setValue:self.titleTextField.text forKey:@"title"];
+    [book setValue:self.authorTextField.text forKey:@"author"];
+
+    [self.frienddd addBookObject:book];
+
+    [self.moc save:nil];
+
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
