@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Comment.h"
+#import "Book.h"
 
 @interface BookViewController : UIViewController
-
+@property Book *book;
 @end

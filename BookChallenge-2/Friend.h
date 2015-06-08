@@ -2,7 +2,7 @@
 //  Friend.h
 //  BookChallenge-2
 //
-//  Created by Alex Santorineos on 6/4/15.
+//  Created by Alex Santorineos on 6/8/15.
 //  Copyright (c) 2015 madApperz. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 
 @interface Friend : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * isFriend;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *book;
 @end
 

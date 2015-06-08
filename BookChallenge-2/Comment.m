@@ -1,19 +1,18 @@
 //
-//  Friend.m
+//  Comment.m
 //  BookChallenge-2
 //
 //  Created by Alex Santorineos on 6/8/15.
 //  Copyright (c) 2015 madApperz. All rights reserved.
 //
 
-#import "Friend.h"
+#import "Comment.h"
 #import "Book.h"
 
 
-@implementation Friend
+@implementation Comment
 
-@dynamic isFriend;
-@dynamic name;
+@dynamic textDescription;
 @dynamic book;
 
 @end

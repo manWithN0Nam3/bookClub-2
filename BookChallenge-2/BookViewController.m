@@ -7,31 +7,87 @@
 //
 
 #import "BookViewController.h"
+#import "AppDelegate.h"
 
-@interface BookViewController ()
 
+@interface BookViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *titleTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorTextLabel;
+@property Comment *comment;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property NSManagedObjectContext *moc;
+@property NSArray *comments;
 @end
 
 @implementation BookViewController
 
 - (void)viewDidLoad {
+
+    AppDelegate *delegate = [[UIApplication sharedApplication]delegate];
+    self.moc = delegate.managedObjectContext;
+
+
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSLog(@"%@",self.book);
+    self.titleTextLabel.text = self.book.title;
+    self.title = self.book.title;
+    self.authorTextLabel.text = self.book.author;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)onButtonTapped:(UIBarButtonItem *)sender {
+
+    UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:@"add Comment" message:@"👩‍👩‍👧😷😜" preferredStyle:UIAlertControllerStyleAlert];
+
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"addComment";
+    }];
+
+
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *save = [UIAlertAction actionWithTitle:@"save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UITextField *textField0 = alertController.textFields[0];
+        NSString *commentTextField = textField0.text;
+
+        Comment *comment = [NSEntityDescription insertNewObjectForEntityForName:@"Comment" inManagedObjectContext:self.moc];
+        [comment setValue:commentTextField forKey:@"textDescription"];
+        [self.book addCommentObject:comment];
+
+        [self.moc save:nil];
+        [self load];
+    }];
+
+    [alertController addAction:save];
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
+    //    [self.tableView reloadData];
+    [self load];
+
+
+
+
 }
 
-/*
-#pragma mark - Navigation
+-(void)load{
+//    self.comment = [self.book.comment allObjects];
+    self.comments = [self.book.comment allObjects];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self.tableView reloadData];
+
+
 }
-*/
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+    return self.comments.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellComment"];
+    Comment *comment = [self.comments objectAtIndex:indexPath.row];
+
+    cell.textLabel.text = comment.textDescription;
+    return cell;
+
+
+}
 
 @end

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *nameTextLabel;
 @property (nonatomic) NSArray *books;
+@property Book *book;
 
 
 @end
@@ -25,9 +26,8 @@
     [super viewDidLoad];
 
     self.nameTextLabel.text = self.frienddd.name;
+
     [self load];
-
-
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -52,21 +52,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellBook"];
 
-    Book *book = [self.books objectAtIndex:indexPath.row];
-    cell.textLabel.text = book.title;
-
+    self.book = [self.books objectAtIndex:indexPath.row];
+    cell.textLabel.text = self.book.title;
+    cell.detailTextLabel.text = self.book.author;
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    AddBookViewController *dvc = segue.destinationViewController;
-//    dvc.frienddd = self.frienddd;
+    if ([segue.identifier isEqual:@"commentID"]) {
 
+        BookViewController *dVc = segue.destinationViewController;
+        dVc.book = self.book;
 
-    UINavigationController *nVc = segue.destinationViewController;
-    AddBookViewController *vc = nVc.viewControllers[0];
-    vc.frienddd = self.frienddd;
+    }
+    else{
 
+        UINavigationController *nVc = segue.destinationViewController;
+        AddBookViewController *vc = nVc.viewControllers[0];
+        vc.frienddd = self.frienddd;
+    }
 }
 
 @end
